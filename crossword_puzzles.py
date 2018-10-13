@@ -4,7 +4,7 @@ SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
 
 VERSION:
-  0.5.0
+  0.5.1
 
 AUTHOR:
   David J. Lambert
