@@ -1,0 +1,7 @@
+# requirements.txt
+# Author: David J. Lambert
+#
+beautifulsoup4
+requests
+lxml
+#
