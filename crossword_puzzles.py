@@ -10,7 +10,7 @@ AUTHOR:
   David J. Lambert
 
 DATE:
-  October 11, 2018
+  October 12, 2018
 
 DESCRIPTION:
   Author has a subscription to crossword puzzles published in pdf format 6 days
