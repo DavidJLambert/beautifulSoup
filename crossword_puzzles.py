@@ -1,16 +1,18 @@
 """ crossword_puzzles.py
+REPOSITORY:
+  https://github.com/DavidJLambert/beautifulSoup
 
 SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
 
 VERSION:
-  0.5.1
+  0.5.2
 
 AUTHOR:
   David J. Lambert
 
 DATE:
-  October 12, 2018
+  May 31, 2019
 
 DESCRIPTION:
   Author has a subscription to crossword puzzles published in pdf format 6 days
@@ -223,7 +225,7 @@ def get_folder():
         none.
     """
     while True:
-        folder = input('Enter output folder path with slashes (/): ')
+        folder = input('Enter output folder path: ')
         if not os.path.isdir(folder):
             print('"{}" does not exist or is not a folder'.format(folder))
         elif not os.access(folder, os.W_OK):

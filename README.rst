@@ -1,14 +1,17 @@
+BeautifulSoup
+-------------
+
 SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
 
 VERSION:
-  0.5.1
+  0.5.2
 
 AUTHOR:
   David J. Lambert
 
 DATE:
-  October 12, 2018
+  May 31, 2019
 
 DESCRIPTION:
   Author has a subscription to crossword puzzles published in pdf format 6 days

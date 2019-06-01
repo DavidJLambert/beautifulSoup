@@ -1,11 +1,19 @@
 # requirements.txt
-# https://github.com/DavidJLambert/beautifulSoup
-# Version: 0.5.1
-# Author: David J. Lambert
-# Date: October 12, 2018
-# Author: David J. Lambert
+# REPOSITORY:
+#   https://github.com/DavidJLambert/beautifulSoup
 #
+# SUMMARY:
+#   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
+#
+# VERSION:
+#   0.5.2
+#
+# AUTHOR:
+#   David J. Lambert
+#
+# DATE:
+#   May 31, 2019
+
 beautifulsoup4
 requests
 lxml
-#
