@@ -57,6 +57,7 @@ from time import sleep
 import os
 import sys
 from getpass import getpass
+from lxml import html
 
 
 # Global string constants.
@@ -77,13 +78,41 @@ def main():
     num_puzzles = 0
 
     with requests.Session() as session:
-        # Get login credentials
-        login_data = get_login_credentials()
+        # Assemble login data, in a form that session.post understands.
+        # Method obtained from https://kazuar.github.io/scraping-tutorial.
+        login_data = dict()
+
+        # "Inspect element" for username field has 'name="username"'.
+        username = input('Enter website username: ')
+        login_data['username'] = username
+
+        # "Inspect element" for password field has 'name="password"'.
+        prompt = 'Enter website password: '
+        if sys.stdin.isatty():
+            # Using terminal, OK to use getpass.
+            password = getpass(prompt)
+        else:
+            # Use "input" (echoes password).  Getpass detects Eclipse & IDLE
+            # (warns & uses "input"), doesn't detect PyCharm & hangs, don't
+            # know what other environments do, just play it safe & use "input".
+            password = input(prompt)
+        login_data['password'] = password
+
+        # Login page has hidden input with 'name="authenticity_token"',
+        # get the authenticity_token.
+        login_url = URL_ROOT + '/sessions'
+        result = session.get(login_url)
+        tree = html.fromstring(result.text)
+        xpath_arg = "//input[@name='authenticity_token']/@value"
+        authenticity_token = list(set(tree.xpath(xpath_arg)))[0]
+        login_data['authenticity_token'] = authenticity_token
 
         # Log onto website.
-        login_url = URL_ROOT + '/sessions'
         login = session.post(url=login_url, data=login_data)
+        # add third arg "headers = dict(referer=login_url)"?
         action = error_check(login.status_code, login_url)
+        if action is not None:
+            print("Error_check returns {}".format(action))
 
         # Get start date
         date_obj = get_start_date()
@@ -235,30 +264,6 @@ def get_folder():
     if folder[-1] != '/':
         folder += '/'
     return folder
-
-
-def get_login_credentials():
-    """ Gets username and password from end-user.
-
-    Args:
-        none.
-    Returns:
-        login data (dict).
-    Raises:
-        none.
-    """
-    username = input('Enter website username: ')
-
-    prompt = 'Enter website password: '
-    if sys.stdin.isatty():
-        # Using terminal, OK to use getpass.
-        password = getpass(prompt)
-    else:
-        # Use "input" (echoes password).  Getpass detects Eclipse & IDLE (warns
-        # & uses "input"), doesn't detect PyCharm & hangs, don't know what other
-        # environments do, just play it safe & use "input".
-        password = input(prompt)
-    return {'username': username, 'password': password}
 
 
 def url_from_date(date_obj):

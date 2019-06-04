@@ -5,13 +5,13 @@ SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
 
 VERSION:
-  0.5.2
+  0.5.3
 
 AUTHOR:
   David J. Lambert
 
 DATE:
-  May 31, 2019
+  June 4, 2019
 
 DESCRIPTION:
   Author has a subscription to crossword puzzles published in pdf format 6 days
@@ -20,8 +20,7 @@ DESCRIPTION:
   that website and downloads the pdf files for all dates from a starting date,
   entered interactively, to the current date, inclusive.
 
-  Uses "requests" for http and "Beautiful Soup" for parsing web page text (CSS,
-  HTML, and javascript).
+  Uses "requests" for http and "Beautiful Soup" for parsing web page text.
 
 COMMENT ON THE CONSTRUCTION OF THIS PROGRAM:
   The URL for each puzzle is www.puzzlesociety.com/daily-commuter/yyyy/mm/dd,
