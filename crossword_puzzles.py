@@ -12,7 +12,7 @@ AUTHOR:
   David J. Lambert
 
 DATE:
-  May 31, 2019
+  July 10, 2020
 
 DESCRIPTION:
   Author has a subscription to crossword puzzles published in pdf format 6 days
@@ -180,16 +180,17 @@ def main():
 
         # Reached MAX_PUZZLES.
         print('The next page is {}.'.format(page_url))
+# End of function main.
 
 
-def error_check(status_code, url):
+def error_check(status_code: int, url: str) -> str:
     """ Checks the HTTP Status Code for all HTTP commands issued.
 
     Args:
         status_code (int): status code for the most recent HTTP command.
-        url (string): the URL targeted by the most recent HTTP command.
+        url (str): the URL targeted by the most recent HTTP command.
     Returns:
-        action (string): action to take based on Status Code
+        action (str): action to take based on Status Code
     Raises:
         none.
     """
@@ -211,15 +212,16 @@ def error_check(status_code, url):
         # Status Code 200, print nothing, take no special action.
         action = None
     return action
+# End of function main.
 
 
-def get_start_date():
+def get_start_date() -> date:
     """ Gets valid date string from user.  The first valid date is 2001/10/29.
 
     Args:
         none.
     Returns:
-        Date (date object).  Date object corresponding to entered start date.
+        Date (date).  Date object corresponding to entered start date.
     Raises:
         none.
     """
@@ -241,15 +243,16 @@ def get_start_date():
         date_obj += ONE_DAY
         print("Your start date is Sunday, so we'll start the next day.")
     return date_obj
+# End of function get_start_date.
 
 
-def get_folder():
+def get_folder() -> str:
     """ Gets folder path from user with write permissions to it.
 
     Args:
         none.
     Returns:
-        folder (string): path of folder that's writeable.
+        folder (str): path of folder that's writeable.
     Raises:
         none.
     """
@@ -264,41 +267,44 @@ def get_folder():
     if folder[-1] != '/':
         folder += '/'
     return folder
+# End of function get_folder.
 
 
-def url_from_date(date_obj):
+def url_from_date(date_obj: date) -> str:
     """ Gets URL for given date.
 
     Args:
-        date_obj (date object):
+        date_obj (date):
     Returns:
-        url (string):
+        url (str):
     Raises:
         none.
     """
     return URL_ROOT + '/daily-commuter/' + date_obj.strftime('%Y/%m/%d')
+# End of function url_from_date.
 
 
-def date_from_url(url):
+def date_from_url(url: str) -> date:
     """ URL contains date, in 'yyyy/mm/dd' format, convert it to date object.
 
     Args:
-        url (string): the URL targeted by the most recent HTTP command.
+        url (str): the URL targeted by the most recent HTTP command.
     Returns:
-        date (date object): the date object for the date embedded in the url.
+        date (date): the date object for the date embedded in the url.
     Raises:
         none.
     """
     return date_from_string(url[-10:])
+# End of function date_from_url.
 
 
-def date_from_string(date_string):
+def date_from_string(date_string: str) -> date:
     """ Converts date, in 'yyyy/mm/dd' format, to corresponding date object.
 
     Args:
-        date_string (string): the URL targeted by the most recent HTTP command.
+        date_string (str): the URL targeted by the most recent HTTP command.
     Returns:
-        date (date object): the date object for date_string.
+        date (date): the date object for date_string.
     Raises:
         none.
     """
