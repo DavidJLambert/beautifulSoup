@@ -3,6 +3,7 @@ crossword_puzzles.py
 
 SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
+  NOT RUNNABLE, THE SUBSCRIPTION TO THE CROSSWORD PUZZLE WEBSITE HAS EXPIRED.
 
 VERSION:
   0.5.3
