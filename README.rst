@@ -1,5 +1,5 @@
-BeautifulSoup
--------------
+crossword_puzzles.py
+--------------------
 
 SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.

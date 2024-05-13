@@ -1,9 +1,11 @@
 """ crossword_puzzles.py
-REPOSITORY:
-  https://github.com/DavidJLambert/beautifulSoup
 
 SUMMARY:
   Downloads crossword puzzle pdf files from www.puzzlesociety.com.
+  NOT RUNNABLE, THE SUBSCRIPTION TO THE CROSSWORD PUZZLE WEBSITE HAS EXPIRED.
+
+REPOSITORY:
+  https://github.com/DavidJLambert/beautifulSoup
 
 VERSION:
   0.5.2
